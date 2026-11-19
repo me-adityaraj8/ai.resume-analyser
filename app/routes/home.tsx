@@ -1,13 +1,42 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import Navbar from '../components/Navbar';
+import resumes from "constants";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Resumind" },
+    { name: "description", content: "Smart feedback for your dream job!" },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+ return <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+  <Navbar />
+ <section className="main-section">
+  <div className="page-heading">
+    <h1>Track Your Applications and Resume Ratings</h1>
+  </div>
+ </section>
+
+
+export default function Home() {
+ return <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+  <Navbar />
+ <section className="main-section">
+  <div className="page-heading">
+    <h1>Track Your Applications and Resume Ratings</h1>
+  </div>
+ </section>
+
+
+{ (resumes as any[]).map((resume) => (
+  <div>
+    <h1>{resume.jobTitle}</h1>
+  </div>
+))}
+  </main>;
 }
+  </main>;
+}
+
+
